@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="DecisionPuntajeID" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.5.0">
+  <decision id="RDecisionClasificarUsuario" name="Evaluacion Puntaje">
+    <decisionTable id="DecisionTable_1ubohdd">
+      <input id="Input_1" label="Puntaje">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text>puntaje</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Clasificacion" name="clasifica" typeRef="string">
+        <outputValues id="UnaryTests_0nft1em">
+          <text>"Consideracion","Potencial","Descubrimiento"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1g7nz5f">
+        <inputEntry id="UnaryTests_0wkvh6p">
+          <text>&lt;=2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nu4xlc">
+          <text>"Descubrimiento"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0snv24z">
+        <inputEntry id="UnaryTests_0wmpnvc">
+          <text>(2..6]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01odfhy">
+          <text>"Consideracion"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yeqph8">
+        <inputEntry id="UnaryTests_10tfthe">
+          <text>&gt;6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w2t0mt">
+          <text>"Potencial"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t4l2ny">
+        <inputEntry id="UnaryTests_0y2rlh8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0olm40u">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="RDecisionClasificarUsuario">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
